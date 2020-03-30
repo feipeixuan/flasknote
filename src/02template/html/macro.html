@@ -1,0 +1,9 @@
+{% macro input(name, value='', type='text', size=20) -%}
+    <input type="{{ type }}" name="{{ name }}" value="{{
+        value|e }}" size="{{ size }}">
+{%- endmacro %}
+
+<!--宏类似常规编程语言中的函数。它们用于把常用行为作为可重用的函数-->
+
+<p>{{ input('username') }}</p>
+<p>{{ input('password', type='password') }}</p>
