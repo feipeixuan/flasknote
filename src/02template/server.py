@@ -37,6 +37,10 @@ def extend():
 def macro():
     return render_template('macro.html')
 
+# lask允许程序自己定义基于基础模板的错误页面，就像常规路由一样。有两个最常见的错误代码分别是404和500
+@app.errorhandler(404)
+def error1(e):
+    return "404444"
 
 # https://www.cnblogs.com/wongbingming/p/6807771.html
 # http://docs.jinkan.org/docs/jinja2/templates.html#builtin-filters

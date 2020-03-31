@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Sign In</h1>
+    <form action="" method="post" novalidate>
+        <!--使用form.hidden_tag()渲染所以隐藏字段-->
+        {{ form.hidden_tag() }}
+       <p>
+            {{ form.username.label }}<br>
+            {{ form.username(size=32) }}<br>
+           <!--添加for循环以便用红色字体来渲染验证器添加的错误信息。通常情况下，-->
+           <!--拥有验证器的字段都会用form.<field_name>.errors来渲染错误信息-->
+            {% for error in form.username.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.password.label }}<br>
+            {{ form.password(size=32) }}<br>
+            {% for error in form.password.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
+        <p>{{ form.submit() }}</p>
+    </form>
+{% endblock %}
